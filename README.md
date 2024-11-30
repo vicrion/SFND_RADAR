@@ -57,11 +57,40 @@ RDM = 10*log10(RDM);
 
 ## 2D CFAR
 
-The implementation rendered the following CFAR mask:
+The implementation rendered the following CFAR mask (example using one of many different parameters):
 
 ![image](https://github.com/user-attachments/assets/7164ca8f-7516-46d5-97d5-b6bb0701e4f6)
 
+### Implementation steps
+
+* Detect signals in a range-Doppler map by evaluating each point's power level against an adaptive threshold derived from its surrounding environment.
+* Analyze the local noise around a point of interest while excluding a protective buffer zone to ensure accurate noise estimation.
+* Dynamically adjust the detection threshold vs. local noise levels.
+* Points exceeding the threshold are marked as detections using a binary mask to indicate signal of interest.
+
+### Selection of Training, Guard cells and offset
+
+When chosing the parameters we want to:
+* minimize the size of the detected mask
+* keep it detectable for the target
+
+A good candidate, for example:
+```octave
+Tr = 14; % Number of Training Cells in Range
+Td = 8;  % Number of Training Cells in Doppler
+Gr = 8;  % Number of Guard Cells in Range
+Gd = 2;  % Number of Guard Cells in Doppler
+offset = 10; % SNR threshold, dB
+```
+
+Which achives the following result (zoomed-in):
+![image](https://github.com/user-attachments/assets/37267c5c-8225-444d-a3ed-92ade0bbb4ab)
 
 
+### Steps taken to suppress the non-thresholded cells at the edges
 
+* Increase SNR threshold value will have the largest impact.
+* Reduce the number of guard cells will help to eliminate noise if the SNR threshold should be kept lower.
+* Adjustment of train cells for smaller area.
+* Combinations of all of the above for best results.
 
