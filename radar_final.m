@@ -80,11 +80,11 @@ set(gca,'YDir','normal');
 ylim([0, R_max]);
 
 %% CFAR
-Tr = 10; % Number of Training Cells in Range
+Tr = 8; % Number of Training Cells in Range
 Td = 8;  % Number of Training Cells in Doppler
-Gr = 4;  % Number of Guard Cells in Range
-Gd = 4;  % Number of Guard Cells in Doppler
-offset = 6; % SNR threshold, dB
+Gr = 2;  % Number of Guard Cells in Range
+Gd = 2;  % Number of Guard Cells in Doppler
+offset = 8; % SNR threshold, dB
 
 CFAR_mask = zeros(size(RDM));
 num_training_cells = (2*Tr + 2*Gr + 1) * (2*Td + 2*Gd + 1) - (2*Gr + 1) * (2*Gd + 1);
@@ -119,3 +119,5 @@ xlabel('Doppler Velocity (m/s)'); ylabel('Range (m)');
 c = colorbar; c.Label.String = 'Detection (binary)';
 set(gca,'YDir','normal');
 ylim([0, R_max]);
+
+disp("Done.\n");
