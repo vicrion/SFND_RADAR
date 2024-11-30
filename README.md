@@ -57,6 +57,11 @@ RDM = 10*log10(RDM);
 
 ## 2D CFAR
 
+The implementation rendered the following CFAR mask:
+
+![image](https://github.com/user-attachments/assets/7164ca8f-7516-46d5-97d5-b6bb0701e4f6)
+
+
 
 
 
