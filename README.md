@@ -42,6 +42,8 @@ signal_fft = signal_fft(1:Nr/2, :);
 
 * After a proper adjustment of range axis, the mix peak matches the simulated value of the target.
 
+1D-FFT for simulated target at `R=100`:
+
 ![image](https://github.com/user-attachments/assets/35b94d4a-ac68-4cf1-9336-db5ea72df5fe)
 
 ## Range-Doppler FFT (provided)
