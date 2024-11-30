@@ -32,8 +32,16 @@ Mix = Tx.*Rx;
 
 ## Range-FFT
 
+```octave
+Mix_reshaped = reshape(Mix, [Nr, Nd]);
+signal_fft = fft(Mix_reshaped, Nr); % FFT along the range bins
+signal_fft = signal_fft / max(max(abs(signal_fft)));
+signal_fft = abs(signal_fft);
+signal_fft = signal_fft(1:Nr/2, :);
+```
+
 * After a proper adjustment of range axis, the mix peak matches the simulated value of the target.
 
-
+![image](https://github.com/user-attachments/assets/35b94d4a-ac68-4cf1-9336-db5ea72df5fe)
 
 
