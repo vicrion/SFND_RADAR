@@ -44,4 +44,19 @@ signal_fft = signal_fft(1:Nr/2, :);
 
 ![image](https://github.com/user-attachments/assets/35b94d4a-ac68-4cf1-9336-db5ea72df5fe)
 
+## Range-Doppler FFT (provided)
+
+```octave
+sig_fft2 = fft2(Mix_reshaped, Nr, Nd);
+sig_fft2 = fftshift (sig_fft2(1:Nr/2, 1:Nd));
+RDM = abs(sig_fft2);
+RDM = 10*log10(RDM);
+```
+
+![image](https://github.com/user-attachments/assets/c3387a2b-7bdb-44fa-a03b-ba03c16fb7d6)
+
+## 2D CFAR
+
+
+
 
